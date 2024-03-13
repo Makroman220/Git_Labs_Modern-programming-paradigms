@@ -1,52 +1,49 @@
 #include <iostream>
 using namespace std;
-// Звичайна функція для обчислення n!!
-int doubleFactorial(int n)
+
+// Normal function for calculating n!!
+int doubleFactorial(int n) 
 {
 	int result = 1;
-	// Цикл для обчислення n!! з кроком 2 для непарних n та з
-	кроком 1 для парних n
-		for (int i = (n % 2 == 0 ? 2 : 1); i <= n; i += 2)
-		{
-			result *= i; // Обчислення добутку n!!
-		}
-	// Якщо n парне, результат множиться на -1
-	if (n % 2 == 0)
+	// Loop for calculating n!! with step 2 for odd n and step 1 for even n
+	for (int i = (n % 2 == 0 ? 2 : 1); i <= n; i += 2) 
+	{
+		result *= i; // Calculating the product of n!!
+	}
+	// If n is even, the result is multiplied by -1
+	if (n % 2 == 0) 
 	{
 		result *= -1;
 	}
-	return result; // Повернення результату n!!
+	return result; // Returning the result of n!!
 }
-// Шаблонна функція для обчислення (-1)^{n+1} * n!!
+
+// Template function for calculating (-1)^{n+1} * n!!
 template <typename T>
-T doubleFactorial(T n)
+T doubleFactorial(T n) 
 {
 	T result = 1;
-	// Цикл для обчислення n!! з кроком 2 для непарних n та з
-	кроком 1 для парних n
-		for (T i = (n % 2 == 0 ? 2 : 1); i <= n; i += 2)
-		{
-			result *= i; // Обчислення добутку n!!
-		}
-	// Якщо n парне, результат множиться на -1
-	if (n % 2 == 0)
+	// Loop for calculating n!! with step 2 for odd n and step 1 for even n
+	for (T i = (n % 2 == 0 ? 2 : 1); i <= n; i += 2) 
+	{
+		result *= i; // Calculating the product of n!!
+	}
+	// If n is even, the result is multiplied by -1
+	if (n % 2 == 0) 
 	{
 		result *= -1;
 	}
-	return result; // Повернення результату (-1)^{n+1} * n!!
+	return result; // Returning the result of (-1)^{n+1} * n!!
 }
-int main()
+
+int main() 
 {
 	int n;
 	cout << "Enter a positive integer n: ";
 	cin >> n;
-	// Виведення результату для n!! з використанням звичайної
-	функції
-		cout << "n!! of an ordinary function: " << doubleFactorial(n)
-		<< endl;
-	// Виведення результату для (-1)^{n+1} * n!! з використанням
-	шаблонної функції
-		cout << "(-1)^{n+1} * n!!: " << doubleFactorial<int>(n) <<
-		endl;
+	// Printing the result for n!! using the normal function
+	cout << "n!! of an ordinary function: " << doubleFactorial(n) << endl;
+	// Printing the result for (-1)^{n+1} * n!! using the template function
+	cout << "(-1)^{n+1} * n!!: " << doubleFactorial<int>(n) << endl;
 	return 0;
 }
